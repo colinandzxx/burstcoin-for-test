@@ -102,6 +102,7 @@ public final class GeneratorImpl implements Generator {
 
     GeneratorStateImpl generator = new GeneratorStateImpl(secretPhrase, nonce, publicKey, id);
     GeneratorStateImpl curGen = generators.get(id);
+    logger.debug("secretPhrase: " + secretPhrase + " nonce: " + Convert.toUnsignedLong(nonce) + " publicKey: " + Convert.toHexString(publicKey) + " id: " + Convert.toUnsignedLong(id));
     if (curGen == null || generator.getBlock() > curGen.getBlock() || generator.getDeadline().compareTo(curGen.getDeadline()) < 0) {
       generators.put(id, generator);
       listeners.notify(generator, Event.START_FORGING);
