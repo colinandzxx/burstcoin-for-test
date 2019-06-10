@@ -8,4 +8,4 @@ API.allowed = *
 # Append ;AUTO_SERVER=TRUE to enable automatic mixed mode access.
 DB.Url=jdbc:mariadb://mariadb:3306/burst
 DB.Username=root
-DB.Password=burst
+DB.Password=brs_pass

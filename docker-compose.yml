@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  burstcoin:
+    image: burstcoin:v0.1.0
+    restart: always
+    depends_on:
+     - mariadb
+    ports:
+     - 18123:8123
+     - 18125:8125
+    command: ["./wait-for-it.sh", "mariadb:3306", "--", "/bin/sh", "start.sh"]
+  mariadb:
+    image: mariadb:10
+    environment:
+     - MYSQL_ROOT_PASSWORD=brs_pass
+     - MYSQL_DATABASE=burst
+    command: mysqld --character_set_server=utf8mb4
+    volumes:
+     - '/home/fzzb/workspace/burstcoin-for-test/burst_db:/var/lib/mysql:rw'
+       #     - '/home/fzzb/workspace/burstcoin-for-test/burst_dbinit:/docker-entrypoint-initdb.d'
