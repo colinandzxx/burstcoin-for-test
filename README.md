@@ -207,3 +207,5 @@ as its preferred Java Profiler.
 部署时目录结构可以参考下图：
 
 ![avatar](https://raw.githubusercontent.com/colinandzxx/burstcoin-for-test/master/pic/docker-instance.png)
+
+其中`conf`目录中的配置文件源自源码根目录下的`conf`文件夹，请根据实际环境自行调整。
